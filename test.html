@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s.js Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f5f5f5;
+        }
+        .test-box {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ s.js Script Tests</h1>
+    <p>Below are different test cases showing correct usage of the s.js script.</p>
+    <p><strong>Note:</strong> Click a button to test - it will redirect the page to embedded content.</p>
+
+    <div class="test-box">
+        <h2>Test 1: Simple Domain (Auto HTTPS)</h2>
+        <p>Format: <code>link`google.com`</code></p>
+        <p>This uses the simplest format - just the domain name, automatically converts to https://</p>
+        <button onclick="testSimple()">Test Simple Domain</button>
+        <pre style="background:#f0f0f0; padding:10px; border-radius:4px; overflow-x:auto;"><code>&lt;script src='https://kbsigmaboy67.github.io/-/s.js' 
+  data='link`google.com`' /&gt;</code></pre>
+    </div>
+
+    <div class="test-box">
+        <h2>Test 2: Full HTTPS URL with Custom Title</h2>
+        <p>Format: <code>link`https://example.com`;tab-name`Custom Title`</code></p>
+        <p>Full URL with custom browser tab title</p>
+        <button onclick="testWithTitle()">Test With Title</button>
+        <pre style="background:#f0f0f0; padding:10px; border-radius:4px; overflow-x:auto;"><code>&lt;script src='https://kbsigmaboy67.github.io/-/s.js' 
+  data='link`https://example.com`;tab-name`My Portal`' /&gt;</code></pre>
+    </div>
+
+    <div class="test-box">
+        <h2>Test 3: Backtick + Colon Format</h2>
+        <p>Format: <code>link:`https://example.com`</code></p>
+        <p>Alternative format with colon between key and value</p>
+        <button onclick="testColonFormat()">Test Colon Format</button>
+        <pre style="background:#f0f0f0; padding:10px; border-radius:4px; overflow-x:auto;"><code>&lt;script src='https://kbsigmaboy67.github.io/-/s.js' 
+  data='link:`https://example.com`;tab-name:`Example`' /&gt;</code></pre>
+    </div>
+
+    <div class="test-box">
+        <h2>Test 4: Simple Colon + Semicolon Format</h2>
+        <p>Format: <code>link:value;tab-name:value;</code></p>
+        <p>Plain key:value format with semicolons</p>
+        <button onclick="testSemicolonFormat()">Test Semicolon Format</button>
+        <pre style="background:#f0f0f0; padding:10px; border-radius:4px; overflow-x:auto;"><code>&lt;script src='https://kbsigmaboy67.github.io/-/s.js' 
+  data='link:https://example.com;tab-name:Example Site;' /&gt;</code></pre>
+    </div>
+
+    <div class="test-box">
+        <h2>Test 5: Full Featured Example</h2>
+        <p>Format: All parameters with custom favicon</p>
+        <p>Complete example with title and favicon</p>
+        <button onclick="testFullFeatured()">Test Full Featured</button>
+        <pre style="background:#f0f0f0; padding:10px; border-radius:4px; overflow-x:auto;"><code>&lt;script src='https://kbsigmaboy67.github.io/-/s.js' 
+  data='link`https://github.com`;tab-name`GitHub`;tab-image`https://github.com/favicon.ico`' /&gt;</code></pre>
+    </div>
+
+    <div class="test-box">
+        <h2>Test 6: Query Parameters in URL</h2>
+        <p>Format: <code>link`example.com?param=value&other=123`</code></p>
+        <p>URLs with query parameters work correctly</p>
+        <button onclick="testQueryParams()">Test Query Parameters</button>
+        <pre style="background:#f0f0f0; padding:10px; border-radius:4px; overflow-x:auto;"><code>&lt;script src='https://kbsigmaboy67.github.io/-/s.js' 
+  data='link`google.com/search?q=test`' /&gt;</code></pre>
+    </div>
+
+    <hr>
+    <p><strong>⚠️ Important:</strong> These tests will redirect your page. To see the s.js script in action without leaving this page, copy one of the code examples above and paste it into your own HTML file.</p>
+
+    <script>
+        function testSimple() {
+            const code = `
+<html>
+<head><title>Test</title></head>
+<body>
+  <p>Loading...</p>
+  <script src='https://kbsigmaboy67.github.io/-/s.js' data='link\`google.com\`' />
+</body>
+</html>`;
+            showInIframe(code);
+        }
+
+        function testWithTitle() {
+            const code = `
+<html>
+<head><title>Test</title></head>
+<body>
+  <p>Loading...</p>
+  <script src='https://kbsigmaboy67.github.io/-/s.js' data='link\`https://example.com\`;tab-name\`My Portal\`' />
+</body>
+</html>`;
+            showInIframe(code);
+        }
+
+        function testColonFormat() {
+            const code = `
+<html>
+<head><title>Test</title></head>
+<body>
+  <p>Loading...</p>
+  <script src='https://kbsigmaboy67.github.io/-/s.js' data='link:\`https://example.com\`;tab-name:\`Example\`' />
+</body>
+</html>`;
+            showInIframe(code);
+        }
+
+        function testSemicolonFormat() {
+            const code = `
+<html>
+<head><title>Test</title></head>
+<body>
+  <p>Loading...</p>
+  <script src='https://kbsigmaboy67.github.io/-/s.js' data='link:https://example.com;tab-name:Example Site;' />
+</body>
+</html>`;
+            showInIframe(code);
+        }
+
+        function testFullFeatured() {
+            const code = `
+<html>
+<head><title>Test</title></head>
+<body>
+  <p>Loading...</p>
+  <script src='https://kbsigmaboy67.github.io/-/s.js' data='link\`https://github.com\`;tab-name\`GitHub\`;tab-image\`https://github.com/favicon.ico\`' />
+</body>
+</html>`;
+            showInIframe(code);
+        }
+
+        function testQueryParams() {
+            const code = `
+<html>
+<head><title>Test</title></head>
+<body>
+  <p>Loading...</p>
+  <script src='https://kbsigmaboy67.github.io/-/s.js' data='link\`google.com/search?q=test\`' />
+</body>
+</html>`;
+            showInIframe(code);
+        }
+
+        function showInIframe(html) {
+            const blob = new Blob([html], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            window.location.replace(url);
+        }
+    </script>
+</body>
+</html>
